@@ -9,4 +9,4 @@ Tomato Leaf Disease Detection is a CNN based model to predict from the leaf imag
 
 ![predictions_plot](https://user-images.githubusercontent.com/17172345/179454671-610f61a0-852c-4390-b75a-86647b8bd2ed.png)    
 
-<b>Evaluation Accuracy: 84.79%</b>
+<b>Final Evaluation Accuracy: 84.79%</b>
