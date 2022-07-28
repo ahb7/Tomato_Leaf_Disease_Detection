@@ -1,6 +1,6 @@
 # Tomato_Leaf_Disease_Detection     
 
-Tomato Leaf Disease Detection is a CNN based model to predict from the leaf image if the Tomato plant has any disease. It classifies the plant into 10 categories of diseases. It is deployed on the Heroku platform. Tomato leaf image dataset can be found on [Kaggle](https://www.kaggle.com/datasets/kaustubhb999/tomatoleaf).   
+Tomato Leaf Disease Detection is a CNN based model to predict from the leaf image if the Tomato plant got any disease. It classifies the plant into 10 categories of diseases. It is deployed on the Heroku platform. Tomato leaf image dataset can be found on [Kaggle](https://www.kaggle.com/datasets/kaustubhb999/tomatoleaf).   
 
 [Check out the deployment on Heroku](https://tomato-disease-detection2.herokuapp.com/)    
 
