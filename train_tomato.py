@@ -2,7 +2,6 @@
 """
 Spyder Editor
 
-This is a temporary script file.data
 """
 
 import tensorflow as tf
