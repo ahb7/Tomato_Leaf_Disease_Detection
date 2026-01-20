@@ -3,7 +3,7 @@
 An AI-powered web application that identifies diseases in tomato leaves using Deep Learning. This project is optimized for high-performance inference in resource-constrained environments.
 
 ## 🚀 Live Demo
-[Check out the app on Render]([https://tomato-leaf-disease-detection.onrender.com](https://tomato-leaf-disease-detection.onrender.com/)
+[Check out the app on Render](https://tomato-leaf-disease-detection.onrender.com/)
 
 ## ✨ Features
 * Instant Diagnosis: Upload a photo of a tomato leaf to detect 10 common conditions (Blight, Mold, Virus, etc.).
