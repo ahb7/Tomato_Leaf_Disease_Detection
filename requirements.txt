@@ -7,3 +7,4 @@ pillow
 pandas
 matplotlib
 gunicorn
+tflite-runtime
