@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tomato Disease Detection</title>
+    {{ dropzone.load_css() }}
+    {{ dropzone.style('border: 4px dashed #0087F7; background-color: #f8f8f8; 
+        margin-top: 3%; margin-left: 40%; margin-right: 40%; height: 200px;') }}
+    <style>
+        h1 {text-align: center;}
+        h3 {text-align: center;}
+        h4 {text-align: center;}
+        p {text-align: center;}
+        div {text-align: center;}
+    </style>
+  </head>
+  <body>
+      <h1>Tomato Leaf Disease Detection</h1>
+      <h3>Upload One Tomato Leaf</h3>
+      <h4><a href="https://www.kaggle.com/datasets/kaustubhb999/tomatoleaf">Tomato Leaf Images at Kaggle</a></h4>
+
+        {{ dropzone.create(action='upload_file')}}
+        {{ dropzone.load_js() }}
+        {{ dropzone.config() }} 
+        <br>
+        <div text-align:center>  
+        <form action="/predict/" method="post">
+            <button name="predictBtn" type="submit">Predict</button>
+        </form>
+        </div>
+        <br> 
+        <div text-align:center>  
+        <form action="/clear/" method="post">
+            <button name="refreshBtn" type="submit">Clear</button>
+        </form>
+        </div>             
+        <div text-align:center>  
+            <p><b>Detected: {{clas}} </b></p> 
+            <p><b>Confidence: {{confd}}% </b></p>
+        </div>
+        
+  </body>
+</html>
+
