@@ -1,0 +1,9 @@
+flask==2.2.5
+werkzeug==2.2.3
+markupsafe==2.1.1
+tensorflow-cpu
+numpy
+pillow
+pandas
+matplotlib
+gunicorn
