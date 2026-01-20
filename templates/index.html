@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tomato Disease Detection</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background-color: #f8f9fa; padding: 40px; }
+        .container { background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: inline-block; padding: 30px; width: 450px; }
+        
+        /* Drag & Drop Area */
+        #drop-area { border: 2px dashed #ccc; border-radius: 10px; padding: 20px; cursor: pointer; transition: 0.3s; margin-bottom: 20px; }
+        #drop-area.highlight { border-color: #4CAF50; background-color: #e8f5e9; }
+        
+        /* Image Preview */
+        .preview-img { max-width: 100%; border-radius: 8px; margin-bottom: 15px; display: block; margin-left: auto; margin-right: auto; }
+        
+        /* Uniform Buttons */
+        .btn-group { display: flex; gap: 10px; justify-content: center; }
+        .btn { width: 120px; padding: 12px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 16px; text-decoration: none; display: inline-block; }
+        .btn-predict { background-color: #4CAF50; color: white; }
+        .btn-clear { background-color: #f44336; color: white; }
+        
+        .result { margin-top: 25px; border-top: 1px solid #eee; padding-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Tomato Disease Detection</h1>
+
+    <form action="/" method="post" enctype="multipart/form-data" id="upload-form">
+        <input type="hidden" name="current_filename" value="{{ img_name if img_name else '' }}">
+
+        <div id="drop-area" onclick="document.getElementById('file-input').click()">
+            {% if img_name %}
+                <img src="{{ url_for('static', filename='uploads/' + img_name) }}" class="preview-img">
+                <p>{{ img_name }}</p>
+            {% else %}
+                <p>Drag & drop image here <br> or <b>Click to Browse</b></p>
+            {% endif %}
+            <input type="file" name="file" id="file-input" style="display:none" onchange="this.form.submit()">
+        </div>
+
+        <div class="btn-group">
+            <button type="submit" name="predict_btn" class="btn btn-predict">Predict</button>
+            <a href="/clear" class="btn btn-clear" style="text-align: center; line-height: 24px;">Clear</a>
+        </div>
+    </form>
+
+    {% if clas != "None" %}
+    <div class="result">
+        <h2 style="color: #2e7d32;">{{ clas }}</h2>
+        <p>Confidence Level: <b>{{ confd }}%</b></p>
+    </div>
+    {% endif %}
+    </div>
+
+    <script>
+        let dropArea = document.getElementById('drop-area');
+
+        // Prevent default drag behaviors
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults (e) { e.preventDefault(); e.stopPropagation(); }
+
+        // Highlight drop area
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => dropArea.classList.add('highlight'), false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => dropArea.classList.remove('highlight'), false);
+        });
+
+        // Handle dropped files
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            let dt = e.dataTransfer;
+            let files = dt.files;
+            document.getElementById('file-input').files = files;
+            document.getElementById('upload-form').submit(); // Auto-upload on drop
+        }
+    </script>
+</body>
+</html>
