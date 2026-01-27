@@ -24,7 +24,7 @@ Install dependencies:
 pip install -r requirements.txt <br>
 Run the app:
 python app.py  
-<br><br><br>
+<br><br>
 
   
 <img width="1378" height="790" alt="TLDD" src="https://github.com/user-attachments/assets/307c93a0-937d-4db9-9bf5-1e06970294e1" />
