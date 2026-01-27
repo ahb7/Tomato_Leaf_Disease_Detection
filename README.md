@@ -17,16 +17,14 @@ An AI-powered web application that identifies diseases in tomato leaves using De
 * Deployment: Render (with Gunicorn)
 * Optimization: Model quantized and converted to `.tflite` for low-memory footprint.
 
-Local Setup  
+**Local Setup**  
 Clone the repository:
-git clone https://github.com/ahb7/Tomato_Leaf_Disease_Detection.git
-
+git clone https://github.com/ahb7/Tomato_Leaf_Disease_Detection.git <br> 
 Install dependencies:
-pip install -r requirements.txt
-
+pip install -r requirements.txt <br>
 Run the app:
 python app.py  
-  
+<br><br><br>
 
   
 <img width="1378" height="790" alt="TLDD" src="https://github.com/user-attachments/assets/307c93a0-937d-4db9-9bf5-1e06970294e1" />
